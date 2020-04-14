@@ -1,0 +1,120 @@
+﻿var app = new Vue({
+    el: '#app',
+    data: {
+        
+            editing: false,
+            loading: false,
+            objectindex: 0,
+            productModel: {
+                id: 0,
+                name: 'Product Name',
+                description: "Product Description",
+                value: 1.99
+            },
+            products: [],
+        
+
+    },
+    mounted() {
+        this.getProducts();
+    },
+    methods: {
+
+        getProducts(id) {
+            this.loading = true;
+            axios.get('Admin/products/' + id)
+                .then(res => {
+                    console.log(res);
+                    var products = res.data;
+                    this.productModel = {
+                        id: product.id,
+                        name: product.name,
+                        description: product.description,
+                        value: product.value,
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                });
+
+        },
+        getProducts() {
+            this.loading = true;
+            axios.get('Admin/products')
+                .then(res => {
+                    console.log(res);
+                    this.products = res.data
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                });
+
+        },
+        createProduct() {
+            this.loading = true;
+            axios.post('Admin/products', this.productModel)
+                .then(res => {
+                    console.log(res);
+                    this.products.push(res.data)
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                    this.editing = false;
+                });
+        },
+        updataProduct() {
+            this.loading = true;
+            axios.put('Admin/products', this.productModel)
+                .then(res => {
+                    console.log(res);
+                    this.products.splice(this.objectindex, 1, res.data)
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                    this.editing = false;
+                });
+        },
+        deleteProducts(id, index) {
+            this.loading = true;
+            axios.delete('Admin/products/' + id)
+                .then(res => {
+                    console.log(res);
+                    this.products.splice(index, 1)
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                });
+
+        },
+        newProduct() {
+            this.editing = true;
+            this.productModel.id = 0
+        },
+        editProduct(id, index) {
+            this.objectindex = index;
+            this.getProducts(id);
+            this.editing = true;
+        },
+        cancel() {
+            this.editing = false;
+        }
+    },
+    computed: {
+    }
+
+})
