@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\New folder (2)\\Shop.Domain\\Shop.Domain.csproj": {}
+    "C:\\Users\\ACER\\source\\repos\\Shop\\Shop.Domain\\Shop.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\New folder (2)\\Shop.Domain\\Shop.Domain.csproj": {
+    "C:\\Users\\ACER\\source\\repos\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\New folder (2)\\Shop.Domain\\Shop.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\source\\repos\\Shop\\Shop.Domain\\Shop.Domain.csproj",
         "projectName": "Shop.Domain",
-        "projectPath": "C:\\Users\\user\\Desktop\\New folder (2)\\Shop.Domain\\Shop.Domain.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\New folder (2)\\Shop.Domain\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\source\\repos\\Shop\\Shop.Domain\\Shop.Domain.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\source\\repos\\Shop\\Shop.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

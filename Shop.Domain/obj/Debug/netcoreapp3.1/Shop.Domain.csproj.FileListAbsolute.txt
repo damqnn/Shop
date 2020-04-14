@@ -6,11 +6,3 @@ C:\Users\ACER\source\repos\Shop\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.
 C:\Users\ACER\source\repos\Shop\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.AssemblyInfo.cs
 C:\Users\ACER\source\repos\Shop\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.dll
 C:\Users\ACER\source\repos\Shop\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.pdb
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\bin\Debug\netcoreapp3.1\Shop.Domain.deps.json
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\bin\Debug\netcoreapp3.1\Shop.Domain.dll
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\bin\Debug\netcoreapp3.1\Shop.Domain.pdb
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.csprojAssemblyReference.cache
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.AssemblyInfoInputs.cache
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.AssemblyInfo.cs
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.dll
-C:\Users\user\Desktop\New folder (2)\Shop.Domain\obj\Debug\netcoreapp3.1\Shop.Domain.pdb
