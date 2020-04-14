@@ -22,10 +22,10 @@
 
         getProducts(id) {
             this.loading = true;
-            axios.get('Admin/products/' + id)
+            axios.get('/Admin/products/' + id)
                 .then(res => {
                     console.log(res);
-                    var products = res.data;
+                    this.products = res.data;
                     this.productModel = {
                         id: product.id,
                         name: product.name,
@@ -43,7 +43,7 @@
         },
         getProducts() {
             this.loading = true;
-            axios.get('Admin/products')
+            axios.get('/Admin/productsGet')
                 .then(res => {
                     console.log(res);
                     this.products = res.data
@@ -58,10 +58,10 @@
         },
         createProduct() {
             this.loading = true;
-            axios.post('Admin/products', this.productModel)
+            axios.post('/Admin/productsCreate', this.productModel)
                 .then(res => {
-                    console.log(res);
                     this.products.push(res.data)
+                    console.log(res);
                 })
                 .catch(err => {
                     console.log(err);
@@ -73,7 +73,7 @@
         },
         updataProduct() {
             this.loading = true;
-            axios.put('Admin/products', this.productModel)
+            axios.put('/Admin/productsUpdate', this.productModel)
                 .then(res => {
                     console.log(res);
                     this.products.splice(this.objectindex, 1, res.data)
@@ -88,7 +88,7 @@
         },
         deleteProducts(id, index) {
             this.loading = true;
-            axios.delete('Admin/products/' + id)
+            axios.delete('/Admin/productss/' + id)
                 .then(res => {
                     console.log(res);
                     this.products.splice(index, 1)
