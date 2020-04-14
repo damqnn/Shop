@@ -53,7 +53,7 @@ namespace Shop.Application.Cart
             foreach (var stock in stockOnHold)
             {
                 //return this to 20 min when the time in nay.
-                stock.ExpirationDate = DateTime.Now.AddMinutes(3);
+                stock.ExpirationDate = DateTime.Now.AddMinutes(2);
             }
 
             await _ctx.SaveChangesAsync();

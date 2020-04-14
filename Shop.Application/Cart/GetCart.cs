@@ -26,7 +26,9 @@ namespace Shop.Application.Cart
         {
             public string Name { get; set; }
             public string Value  { get; set; }
+            public decimal ValueDec { get; set; }
             public int Qty { get; set; }
+            public decimal TotalValue { get; set; }
             public int StockId { get; set; }
 
         }
@@ -50,8 +52,11 @@ namespace Shop.Application.Cart
                     {
                         Name = x.Product.Name,
                         Value = $"$ {x.Product.Value.ToString("N2")}",
+                        ValueDec = x.Product.Value,
                         StockId = item.StockId,
-                        Qty = item.Qty
+                        Qty = item.Qty,
+                        TotalValue = x.Product.Value * item.Qty
+
                     })
                     .FirstOrDefault())
                     .ToList();
