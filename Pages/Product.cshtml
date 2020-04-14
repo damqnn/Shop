@@ -1,0 +1,117 @@
+﻿@page "{name}"
+@model ProductModel
+@{
+}
+
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-6">
+                        <figure class="image ">
+                            <img src="~/images/moon.jpg" />
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <section class="content">
+
+                            
+                                <p class="title">@Model.Product.Name</p>
+                                <p class="subtitle">@Model.Product.Desctription</p>
+                            
+                            <p>
+                                Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have disdaimed that despicable wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell, and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
+
+                                He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.
+
+
+                            </p>
+                            <footer>
+                                <form method="post">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Size</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <div class="select is-fullwidth">
+                                                        <select asp-for="CartViewModel.StockId" onchange="toggleStock(event)">
+                                                            @foreach (var s in Model.Product.Stock)
+                                                             {
+                                                                bool disabled = s.Qty <= 0;
+                                                                <option value="@s.Id"disabled="@disabled" >@s.Description</option>
+                                                             }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Qty</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <input class="input" asp-for="CartViewModel.Qty" value="1" />
+                                                </div>
+                                                @foreach (var stock in Model.Product.Stock)
+                                                {
+                                                    if (stock.Qty <=10)
+                                                    {
+                                                        <p class="help is-danger is-hidden low-stock"  id="low-stock-@stock.Id">
+                                                            @(stock.Qty == 0 ? "Out Of Stock" : $" {stock.Qty} Left")
+                                                        </p>
+                                                    }
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <button class="button is-success" type="submit">Submit</button>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    
+                                </form>
+                            </footer>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var toggleStock = function (e) {
+            console.log(e);
+            var stockToHide = document.querySelectorAll('.low-stock');
+            stockToHide.forEach(function (e) {
+                e.classList.add("is-hidden");
+            })
+
+            ShowLowStock(e.target.value);
+        }
+        var ShowLowStock = function (id) {
+            
+            var stockToShow = document.getElementById('low-stock-' + id);
+            stockToShow.classList.remove("is-hidden");
+        }
+        ShowLowStock(document.getElementById('CartViewModel_StockId').value);
+    </script>
+
