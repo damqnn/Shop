@@ -41,13 +41,13 @@ namespace Shop.Application.Products
                  {
                      Name = x.Name,
                      Desctription = x.Desctription,
-                     Value = $"$ {x.Value.ToString("N2")}",
+                     Value = $"${x.Value.ToString("N2")}",
                      
                      Stock = x.Stock.Select(y => new StockViewMovel
                      {
                          Id = y.Id,
                          Description =y.Description,
-                         InStock = y.Qty > 0
+                         Qty = y.Qty 
                      })
                  })
                 .FirstOrDefault();
@@ -65,8 +65,9 @@ namespace Shop.Application.Products
         {
             public int Id { get; set; }
             public string Description { get; set; }
-            public bool InStock { get; set; }
             
+            public int  Qty { get; set; }
+
         }
     }
 }
