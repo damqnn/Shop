@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using Shop.Database;
 using Shop.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 
 
 namespace Shop.Application.Cart
@@ -34,7 +34,8 @@ namespace Shop.Application.Cart
         {
 
             public int ProductId { get; set; }
-            public int Qty = 2;
+
+            public int Qty { get; set; }
             public int StockId { get; set; }
             public int Value { get; set; }
 
@@ -68,11 +69,12 @@ namespace Shop.Application.Cart
             var cart = _session.GetString("cart");
 
 
+            var cartList = JsonSerializer.Deserialize<List<CartProduct>>(cart);
 
-            var cartList = JsonConvert.DeserializeObject<List<CartProduct>>(cart);
 
-            
+
             var itemsInCart = cartList.Select(x => x.StockId).ToList();
+
 
             var listOfProducts = _ctx.Stock
                   .Include(x => x.Product)
@@ -83,19 +85,22 @@ namespace Shop.Application.Cart
                       StockId = x.Id,
                       Value = (int)(x.Product.Value * 100),
                   }).ToList();
-            listOfProducts.Select(x =>
-            {
-                x.Qty = cartList.FirstOrDefault(y => y.StockId == x.ProductId).Qty;
-                return x;
-            });
+
+            listOfProducts = listOfProducts
+                .Select(x =>
+                {
+                    x.Qty = cartList.FirstOrDefault(y => y.StockId == x.StockId).Qty;
+                    return x;
+                })
+                .ToList();
 
 
             var customerInfoString = _session.GetString("customer-info");
 
-            var customerInformation = JsonConvert.DeserializeObject<Shop.Domain.Models.CustomerInformation>(customerInfoString);
+            var customerInformation = JsonSerializer.Deserialize<Shop.Domain.Models.CustomerInformation>(customerInfoString);
 
 
-          
+
             return new Response
             {
                 Products = listOfProducts,
