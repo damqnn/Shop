@@ -8,7 +8,7 @@
             productModel: {
                 id: 0,
                 name: 'Product Name',
-                description: "Product Description",
+                desctription: "Product Description",
                 value: 1.99
             },
             products: [],
@@ -29,7 +29,7 @@
                     this.productModel = {
                         id: product.id,
                         name: product.name,
-                        description: product.description,
+                        desctription: product.description,
                         value: product.value,
                     }
                 })
@@ -58,6 +58,8 @@
         },
         createProduct() {
             this.loading = true;
+            this.productModel.value = parseFloat(this.productModel.value)
+
             axios.post('/Admin/productsCreate', this.productModel)
                 .then(res => {
                     this.products.push(res.data)

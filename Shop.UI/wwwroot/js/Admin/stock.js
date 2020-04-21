@@ -68,6 +68,8 @@
         },
         addStock() {
             this.loading = true;
+            this.newStock.qty = Number(this.newStock.qty)
+
             axios.post('/Admin/stocksCreate', this.newStock)
                 .then(res => {
                     console.log(res);
