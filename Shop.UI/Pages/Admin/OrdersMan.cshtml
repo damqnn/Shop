@@ -4,11 +4,11 @@
 }
 <div id="app">
     <div v-if="selectedOrder === null">
-        <div class="tabs is-centered">
+        <div class="tabs is-left">
             <ul>
-                <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Pending</a></li>
-                <li v-bind:class="{'is-active': status === 1}"><a @@click="status = 1">Packed</a></li>
-                <li v-bind:class="{'is-active': status === 2}"><a @@click="status = 2">Shipped</a></li>
+                <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Emails</a></li>
+                @*<li v-bind:class="{'is-active': status === 1}"><a @@click="status = 1">Packed</a></li>
+                <li v-bind:class="{'is-active': status === 2}"><a @@click="status = 2">Shipped</a></li>*@
             </ul>
         </div>
         <div v-if="orders.length > 0">
@@ -18,12 +18,12 @@
         </div>
     </div>
     <div v-else>
-        <p>
+        @*<p>
             <button  @@click="exitOrder()">Exit</button>
-        </p>
+        </p>*@
         <p class="title">{{selectedOrder.orderRef}}</p>
         <p class="subtitle">{{selectedOrder.email}}</p>
-        <button @@click="updateOrder()">Process</button>
+        @*<button @@click="updateOrder()">Process</button>*@
     </div>
 </div>
 
