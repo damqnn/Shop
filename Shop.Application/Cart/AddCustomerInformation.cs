@@ -43,6 +43,8 @@ namespace Shop.Application.Cart
             [DataType(DataType.EmailAddress)]
             public string Email { get; set; }
             [Required(ErrorMessage = "{0} is required")]
+            [RegularExpression("^?\\(?\\d{3}?\\)??-??\\(?\\d{3}?\\)??-??\\(?\\d{4}?\\)??-?$",
+                ErrorMessage = "The phone number is not valid.")]
             [DataType(DataType.PhoneNumber)]
             public string PhoneNumber { get; set; }
             [Required(ErrorMessage = "Address is required")]
