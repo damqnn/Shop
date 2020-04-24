@@ -9,7 +9,7 @@
                 <div class="columns">
                     <div class="column is-6">
                         <figure class="image ">
-                            <img src="~/images/moon.jpg" />
+                            <img src="~/images/cigarets.jpg" />
                         </figure>
                     </div>
                     <div class="column is-6">
@@ -19,13 +19,11 @@
                                 <p class="title">@Model.Product.Name</p>
                                 <p class="subtitle">@Model.Product.Desctription</p>
                             
-                            <p>
-                                Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have disdaimed that despicable wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell, and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
+                                <p>
+                                    A cigarette is a narrow cylinder containing psychoactive material, typically tobacco, that is rolled into thin paper for smoking. Most cigarettes contain a "reconstituted tobacco" product known as "sheet", which consists of "recycled [tobacco] stems, stalks, scraps, collected dust, and floor sweepings", to which are added glue, chemicals and fillers; the product is then sprayed with nicotine that was extracted from the tobacco scraps, and shaped into curls. The cigarette is ignited at one end, causing it to smolder; the resulting smoke is orally inhaled via the opposite end. Most modern cigarettes are filtered, although this does not make them safer. Cigarette manufacturers have described cigarettes as a drug administration system for the delivery of nicotine in acceptable and attractive form. Cigarettes are addictive (because of nicotine) and cause cancer, chronic obstructive pulmonary disease, heart disease, and other health problems.
+                                    The term cigarette, as commonly used, refers to a tobacco cigarette but is sometimes used to refer to other substances, such as a cannabis cigarette.
 
-                                He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.
-
-
-                            </p>
+                                </p>
                             <footer>
                                 <form method="post">
                                     <div class="field is-horizontal">
@@ -59,7 +57,7 @@
                                                 </div>
                                                 @foreach (var stock in Model.Product.Stock)
                                                 {
-                                                    if (stock.Qty <=10)
+                                                    if (stock.Qty <=20)
                                                     {
                                                         <p class="help is-danger is-hidden low-stock"  id="low-stock-@stock.Id">
                                                             @(stock.Qty == 0 ? "Out Of Stock" : $" {stock.Qty} Left")
